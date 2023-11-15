@@ -1,0 +1,18 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "adresse": "139 RUE DE BERCY PARIS 75012 PARIS 12 FRANCE",
+   "categorieEntreprise": "ETI",
+   "categorieJuridique": "7113",
+   "civilite": null,
+   "dateCreationEntreprise": "06/1981",
+   "dateCreationEtablissement": "11/1995",
+   "dateReactivationEtablissement": null,
+   "estActif": true,
+   "localisationSiege": "75112",
+   "raisonSociale": "SEC ETAT AUPRES MINISTRE ECO FINANCES",
+   "siege": "1",
+   "siren": "110002011",
+   "siret": "11000201100044",
+   "siretPredecesseurSuccesseur": null
+}

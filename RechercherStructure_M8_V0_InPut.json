@@ -1,0 +1,24 @@
+{
+	"structure": {
+		"raisonSocialeStructure": null,
+		"identifiantStructure": null,
+		"typeIdentifiantStructure": "SIRET",
+		"libelleStructure": null,
+		"nomStructure": null,
+		"prenomStructure": null,
+		"adresseCodePostal": null,
+		"adresseVille": null,
+		"adresseCodePays": null,
+		"typeStructure": null,
+		"statutStructure": "ACTIF"
+	},
+	"restreindreStructuresPrivees": null,
+	"parametres": {
+		  "pageResultatDemandee" :null, 
+             "nbResultatsParPage" : 3,
+            "triSens" : "Descendant", 
+           "triColonne" : "IdentifiantStructure"
+	}
+}
+
+

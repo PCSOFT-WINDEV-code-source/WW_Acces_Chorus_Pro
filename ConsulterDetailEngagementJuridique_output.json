@@ -1,0 +1,49 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "demandePaiement": [   {
+      "dateFournisseur": "2017-10-12",
+      "etatCourantDemandePaiement": "MISE_EN_PAIEMENT",
+      "idDemandePaiement": 1569342,
+      "montantTtcDemandePaiement": 3600,
+      "numeroDemandePaiement": "QUAL_00000000059944",
+      "sousType": "FACTURE",
+      "typeDemandePaiement": "FACTURE"
+   }],
+   "emetteur":    {
+      "codeServiceExecutant": "SERVICE_DEFAUT",
+      "idServiceExecutant": 189105,
+      "idStructureEmettrice": 568055,
+      "identifiantStructureEmettrice": 11000201100044,
+      "nomServiceExecutant": "Service par défaut de la structure",
+      "raisonSocialeStructureEmettrice": "SERVICES DE L'ETAT"
+   },
+   "etatCourantEngagement": "COMMANDE",
+   "idEngagement": 759262006550,
+   "lignePoste": [   {
+      "montantTtcPoste": 100,
+      "numeroDePoste": 1,
+      "statutPoste": "COMMANDE"
+   }],
+   "numeroEngagementJuridique": "0000012219",
+   "recepteur":    {
+      "adresseStructureReceptriceCodePays": "FR",
+      "adresseStructureReceptriceCodePostal": 75000,
+      "adresseStructureReceptriceComplement1": "Batiment A",
+      "adresseStructureReceptriceComplement2": "Etage 1",
+      "adresseStructureReceptriceDetail": "1 rue Test",
+      "adresseStructureReceptriceLibellePays": "France",
+      "adresseStructureReceptriceVille": "Test",
+      "designationStructureReceptrice": "67022426201FOURNISSEUR",
+      "idStructureReceptrice": 127781648300,
+      "identifiantStructureReceptrice": "00000000017911"
+   },
+   "references":    {
+      "dateNotificationEngagement": "2016-01-10",
+      "deviseEngagement": "EUR",
+      "libelleDevise": "Euro européen",
+      "montantTotalTtc": 100
+   },
+   "typeEngagement": "BON_DE_COMMANDE"
+}
+

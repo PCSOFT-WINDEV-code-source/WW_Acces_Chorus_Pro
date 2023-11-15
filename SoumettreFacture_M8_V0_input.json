@@ -1,0 +1,73 @@
+{
+  "idUtilisateurCourant": 0,
+  "modeDepot": "SAISIE_API",
+  "numeroFactureSaisi": "",
+  "dateFacture": "",
+  "destinataire": {
+    "codeDestinataire": "",
+    "codeServiceExecutant": ""
+  },
+  "fournisseur": {
+    "idFournisseur": 0,
+    "idServiceFournisseur": 0,
+    "codeCoordonneesBancairesFournisseur": 0
+  },
+  "cadreDeFacturation": {
+    "codeCadreFacturation": "A1_FACTURE_FOURNISSEUR",
+    "codeStructureValideur": "",
+    "codeServiceValideur": ""
+  },
+  "references": {
+    "deviseFacture": "",
+    "typeFacture": "AVOIR",
+    "typeTva": "TVA_SUR_DEBIT",
+    "motifExonerationTva": "",
+    "numeroMarche": "",
+    "numeroBonCommande": "",
+    "numeroFactureOrigine": "",
+    "modePaiement": "CHEQUE"
+  },
+  "lignePoste": [
+    {
+      "lignePosteNumero": 0,
+      "lignePosteReference": "",
+      "lignePosteDenomination": "",
+      "lignePosteQuantite": 0,
+      "lignePosteUnite": "",
+      "lignePosteMontantUnitaireHT": 0,
+      "lignePosteMontantRemiseHT": 0,
+      "lignePosteTauxTva": "",
+      "lignePosteTauxTvaManuel": 0
+    }
+  ],
+  "ligneTva": [
+    {
+      "ligneTvaTaux": "",
+      "ligneTvaMontantBaseHtParTaux": 0,
+      "ligneTvaMontantTvaParTaux": 0,
+      "ligneTvaTauxManuel": 0
+    }
+  ],
+  "montantTotal": {
+    "montantHtTotal": 0,
+    "montantTVA": 0,
+    "montantTtcTotal": 0,
+    "montantRemiseGlobaleTTC": 0,
+    "motifRemiseGlobaleTTC": "",
+    "montantAPayer": 0
+  },
+  "pieceJointePrincipale": {
+    "pieceJointePrincipaleDesignation": "",
+    "pieceJointePrincipaleId": 0
+  },
+  "pieceJointeComplementaire": [
+    {
+      "pieceJointeComplementaireDesignation": "",
+      "pieceJointeComplementaireType": "",
+      "pieceJointeComplementaireNumeroLigneFacture": 0,
+      "pieceJointeComplementaireId": 0,
+      "pieceJointeComplementaireIdLiaison": 0
+    }
+  ],
+  "commentaire": ""
+}

@@ -1,0 +1,31 @@
+{
+  "codeRetour": 0,
+  "libelle": "TRA_MSG_00.000",
+  "listeEngagementJuridique": [
+    {
+      "idEngagementJuridique": 4,
+      "libelleTypeEngagementJuridique": "BON_DE_COMMANDE",
+      "numeroEngagementJuridique": "147853",
+      "structureReceptrice": "DEV088DESTINATAIRE",
+      "identifiantStructureReceptrice": null,
+      "libelleStructureReceptrice": null,
+      "codeServiceExecutant": "SERVICE_DEFAUT",
+      "libelleServiceExecutant": "Service par dÃ©faut de la structure",
+      "dateNotificationEJ": "2015-07-03T00:00:00+02:00",
+      "libelleEtatCourantEJ": "COMMANDE",
+      "montantTotalTtc": 5000,
+      "deviseEngagement": null,
+      "taillePJ": null
+
+
+    }
+  ],
+  "parametresRetour": {
+    "nbResultatsParPage": 10,
+    "pageCourante": 1,
+    "pages": 1,
+    "total": 1
+  }
+}
+
+

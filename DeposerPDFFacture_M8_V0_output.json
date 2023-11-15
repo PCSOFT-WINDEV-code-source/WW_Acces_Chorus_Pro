@@ -1,0 +1,15 @@
+{ 
+"codeRetour": 0, 
+"libelle": "CODE PAR DEFAUT", 
+"codeDestinataire": null, 
+"codeDeviseFacture": "EUR", 
+"codeFournisseur": null, 
+"codeServiceExecutant": null, 
+"dateFacture": "2016-01-28", 
+"montantTVA": 5.5, 
+"numeroBonCommande": null, 
+"numeroFacture": "100", 
+"pieceJointeId": 28093, 
+"typeFacture": "FACTURE", 
+"typeTva": "TVA_SUR_ENCAISSEMENT" 
+}

@@ -1,0 +1,22 @@
+{
+  "codeEngagementJuridique": "BON_DE_COMMANDE",
+  "numeroEngagementJuridique": "",
+  "numeroMarcheEngagementJuridique": "",
+  "structureReceptriceEngagementJuridique": "",
+  "codeServiceExecutant": "",
+  "etatCourantEngagementJuridique": "COMMANDE",
+  "periodeDateNotificationEJDu": "",
+  "periodeDateNotificationEJAu": "",
+  "montantTTCMin": 0,
+  "montantTTCMax": 0,
+  "parametresRecherche": {
+    "pageResultatDemandee": 0,
+    "nbResultatsParPage": 0,
+    "triSens": "Descendant",
+    "triColonne": "LibelleTypeEngagementJuridique",
+    "champsDeTri": {},
+    "ordreTriGenerique": "Descendant",
+    "taillePageGenerique": 0,
+    "indexPageGenerique": 0
+  }
+}

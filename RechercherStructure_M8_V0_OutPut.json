@@ -1,0 +1,33 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "listeStructures":    [
+            {
+         "designationStructure": "ASA LA MARE FLEURIE",
+         "idStructureCPP": 663192,
+         "identifiantStructure": 99999999999999,
+         "statut": "ACTIVE",
+         "typeIdentifiantStructure": "SIRET"
+      },
+            {
+         "designationStructure": "Tribunal de Grande Instance de Toulouse",
+         "idStructureCPP": 16,
+         "identifiantStructure": 96587451235874,
+         "statut": "ACTIVE",
+         "typeIdentifiantStructure": "SIRET"
+      },
+            {
+         "designationStructure": "ASA CHAMPS BACON",
+         "idStructureCPP": 683693,
+         "identifiantStructure": 90000012800000,
+         "statut": "ACTIVE",
+         "typeIdentifiantStructure": "SIRET"
+      }
+   ],
+   "parametresRetour":    {
+      "nbResultatsParPage": 3,
+      "pageCourante": 1,
+      "pages": 7270,
+      "total": 21809
+   }
+}

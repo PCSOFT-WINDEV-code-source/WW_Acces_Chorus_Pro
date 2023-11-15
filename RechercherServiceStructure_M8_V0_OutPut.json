@@ -1,0 +1,54 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "listeServices":    [
+            {
+         "idService": 1928,
+         "codeService": "MIN_JUSTICE",
+         "libelleService": "Ministère de la justice",
+         "dateDbtService": "1947-05-16 00:00",
+         "estActif": true
+      },
+            {
+         "idService": 1926,
+         "codeService": "MIN_INTERIEUR",
+         "libelleService": "Ministère de l'intérieur",
+         "dateDbtService": "1924-06-13 00:00",
+         "estActif": true
+      },
+            {
+         "idService": 1925,
+         "codeService": "MIN_FINANCES",
+         "libelleService": "Ministère des finances et des comptes publics",
+         "dateDbtService": "1914-07-14 00:00",
+         "estActif": true
+      },
+            {
+         "idService": 1927,
+         "codeService": "MIN_DEFENSE",
+         "libelleService": "Ministère de la défense",
+         "dateDbtService": "1906-09-14 00:00",
+         "estActif": true
+      },
+            {
+         "idService": 1929,
+         "codeService": "MIN_AGRICULTURE",
+         "libelleService": "Ministère de l'agriculture, de l'agroalimentaire et de la forêt",
+         "dateDbtService": "1902-01-01 00:00",
+         "estActif": true
+      },
+            {
+         "idService": 1924,
+         "codeService": "PREM_MINISTRE",
+         "libelleService": "Gouvernement Premier Ministre",
+         "dateDbtService": "1789-07-14 00:00",
+         "estActif": true
+      }
+   ],
+   "parametresRetour":    {
+      "nbResultatsParPage": 10,
+      "pageCourante": 1,
+      "pages": 1,
+      "total": 6
+   }
+}

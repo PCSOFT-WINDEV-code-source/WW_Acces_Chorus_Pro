@@ -1,0 +1,35 @@
+{
+  "idUtilisateurCourant": 0,
+  "identifiantFactureCPP": 0,
+  "codeLangue": "",
+  "getpLigneRecapTva": {
+    "pageResultatDemandeeListeRecapitulatifTVA": 0,
+    "nbResultatsParPageListeListeRecapitulatifTVA": 0,
+    "triSensListeRecapitulatifTVA": "Descendant",
+    "triColonneListeRecapitulatifTVA": "LigneTvaMontantTvaParTaux",
+    "champsDeTri": {},
+    "ordreTriGenerique": "Descendant",
+    "taillePageGenerique": 0,
+    "indexPageGenerique": 0
+  },
+  "getpListePiecesJointes": {
+    "pageResultatDemandeeListePieceJointe": 0,
+    "nbResultatsParPageListePieceJointe": 0,
+    "triSensListePiecesJointes": "Descendant",
+    "triColonneListePiecesJointes": "PieceJointeTypeCode",
+    "champsDeTri": {},
+    "ordreTriGenerique": "Descendant",
+    "taillePageGenerique": 0,
+    "indexPageGenerique": 0
+  },
+  "getpLignesPoste": {
+    "pageResultatDemandeeLignesPoste": 0,
+    "nbResultatsParPageLignesPoste": 0,
+    "triSensListeLignesPoste": "Descendant",
+    "triColonneListeLignesPoste": "LignePosteNumero",
+    "champsDeTri": {},
+    "ordreTriGenerique": "Descendant",
+    "taillePageGenerique": 0,
+    "indexPageGenerique": 0
+  }
+}

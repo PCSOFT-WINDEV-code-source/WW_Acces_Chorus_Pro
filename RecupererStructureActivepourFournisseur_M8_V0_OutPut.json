@@ -1,0 +1,10 @@
+
+{
+   "codeRetour": 0,
+   "libelle": "GCU_MSG_01_000",
+   "listeStructures": [   {
+      "designationStructure": "DEV088FOURNISSEUR",
+      "idStructureCPP": 569550,
+      "identifiant": "00000000019429"
+   }]
+}

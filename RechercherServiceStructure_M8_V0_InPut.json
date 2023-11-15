@@ -1,0 +1,13 @@
+{
+  "idStructure": 0,
+  "parametresRechercherServicesStructure": {
+    "pageResultatDemandee": 0,
+    "nbResultatsParPage": 0,
+    "triSens": "Descendant",
+    "triColonne": "CodeService",
+    "champsDeTri": {},
+    "ordreTriGenerique": "Descendant",
+    "taillePageGenerique": 0,
+    "indexPageGenerique": 0
+  }
+}

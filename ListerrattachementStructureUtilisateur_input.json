@@ -1,0 +1,14 @@
+{
+
+"idStructure" : 49739350,
+"idUtilisateur" : 336399862903,
+
+"parametresListerRattachementsStructureUtilisateur":{
+                "nbResultatsParPage" :100,
+                "triSens" : "Ascendant",
+                "triColonne" : "NomService"
+                
+          
+                            }   
+
+}

@@ -1,0 +1,82 @@
+{
+   "codeRetour": 0,
+   "libelle": "GCU_MSG_01_000",
+   "listeDestinataires":    [
+            {
+         "adresseCodePostal": 31068,
+         "adresseVille": "TOULOUSE CEDEX",
+         "idStructureCPP": 16,
+         "nomDestinataire": "Tribunal de Grande Instance de Toulouse",
+         "siret": "96587451235874"
+      },
+            {
+         "adresseCodePostal": 72000,
+         "adresseVille": "Le Mans",
+         "idStructureCPP": 17,
+         "nomDestinataire": "Tribunal de Grande Instance du Mans",
+         "siret": "17490111600049"
+      },
+            {
+         "adresseCodePostal": 46100,
+         "adresseVille": "Figeac",
+         "idStructureCPP": 18,
+         "nomDestinataire": "Tribunal de Grande Instance de Figeac",
+         "siret": "96874589745147"
+      },
+            {
+         "adresseCodePostal": 93160,
+         "adresseVille": "Noisy Le Grand",
+         "idStructureCPP": 20,
+         "nomDestinataire": "Mairie de Noisy Le Grand",
+         "siret": "21930051400011"
+      },
+            {
+         "adresseCodePostal": 75004,
+         "adresseVille": "Paris",
+         "idStructureCPP": 21,
+         "nomDestinataire": "Assistance Publique Hôpitaux de Paris",
+         "siret": "26750045200011"
+      },
+            {
+         "adresseCodePostal": 31059,
+         "adresseVille": "TOULOUSE CEDEX 9",
+         "idStructureCPP": 22,
+         "nomDestinataire": "Hôpital de Rangueil CHU TOULOUSE",
+         "siret": "26310012500057"
+      },
+            {
+         "adresseCodePostal": 94300,
+         "adresseVille": "Vincennes",
+         "idStructureCPP": 37,
+         "nomDestinataire": "Laboratoire CNRS CAES",
+         "siret": "27830051444011"
+      },
+            {
+         "adresseCodePostal": 31400,
+         "adresseVille": "Toulouse",
+         "idStructureCPP": 38,
+         "nomDestinataire": "Laboratoire CNRS LAAS",
+         "siret": "27830051444012"
+      },
+            {
+         "adresseCodePostal": 34090,
+         "adresseVille": "Montpellier",
+         "idStructureCPP": 39,
+         "nomDestinataire": "Laboratoire CNRS Geosciences",
+         "siret": "27830051444013"
+      },
+            {
+         "adresseCodePostal": 13626,
+         "adresseVille": "Aix-en-Provence",
+         "idStructureCPP": 40,
+         "nomDestinataire": "Laboratoire CNRS LEST",
+         "siret": "27830051444015"
+      }
+   ],
+   "parametresRetour":    {
+      "nbResultatsParPage": 10,
+      "pageCourante": 1,
+      "pages": 2186,
+      "total": 21857
+   }
+}

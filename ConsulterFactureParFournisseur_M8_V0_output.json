@@ -1,0 +1,170 @@
+{
+   "codeRetour": 0,
+   "libelle": "CODE PAR DEFAUT",
+   "facture":    {
+      "cadreDeFacturation":       {
+         "codeCadreFacturation": "A12_FACTURE_COTRAITANT",
+         "codeValideur1": 64165014800035,
+         "idValideur1": 161,
+         "raisonSocialeValideur1": "Brousse & Fils SARL",
+         "typeIdentifiantValideur1": "SIRET"
+      },
+      "commentaire": "Facture 1 pour VABF",
+      "destinataire":       {
+         "adresseDestinataireCodePays": "FR",
+         "adresseDestinataireCodePostal": "46000",
+         "adresseDestinataireComplement1": "Conseil Général Regourd",
+         "adresseDestinataireDetail": "Avenue de l'Europe",
+         "adresseDestinataireId": 142,
+         "adresseDestinataireLibellePays": "France",
+         "adresseDestinataireVille": "Cahors",
+         "codeDestinataire": "22460001500511",
+         "codeServiceExecutant": "DIRINFRA",
+         "idDestinataire": 159,
+         "idServiceExecutant": 431,
+         "libelleDestinataire": "Departement du Lot",
+         "libelleServiceExecutant": "Direction des infrastructures et de l'aménagement",
+         "miseEnPaiementDestinataire": true
+      },
+      "fournisseur":       {
+         "adresseFournisseurCodePays": "FR",
+         "adresseFournisseurCodePostal": "12700",
+         "adresseFournisseurDetail": "22 Rue Jean Jaurès",
+         "adresseFournisseurId": 143,
+         "adresseFournisseurLibellePays": "France",
+         "adresseFournisseurVille": "Capdenac Gare",
+         "codeFournisseur": "42668006200012",
+         "codeServiceFournisseur": "ADMIN",
+         "coordBancairesFournisseurCleIban": 76,
+         "coordBancairesFournisseurCleRib": 52,
+         "coordBancairesFournisseurCodeBanque": 10207,
+         "coordBancairesFournisseurCodePays": "FR",
+         "coordBancairesFournisseurCompteBancaire": "03646163645",
+         "coordBancairesFournisseurId": 132,
+         "coordBancairesFournisseurType": "IBAN",
+         "idFournisseur": 160,
+         "idServiceFournisseur": 435,
+         "libelleServiceFournisseur": "Service administratif et financier",
+         "numeroRcsFournisseur": "RCS CAPDENAC GARE 426680062",
+         "raisonSocialeFournisseur": "CAPRARO & Cie",
+         "typeIdentifiantFournisseur": "SIRET"
+      },
+      "identifiantFactureCPP": 236,
+      "lignesDePoste":       {
+         "lignePoste":          [
+                        {
+               "lignePosteDenomination": "Décoration / plantations",
+               "lignePosteMontantHtApresRemise": 34000,
+               "lignePosteMontantTtcApresRemise": 35870,
+               "lignePosteMontantTva": 1870,
+               "lignePosteMontantUnitaireHT": 34000,
+               "lignePosteNumero": 3,
+               "lignePosteQuantite": 1,
+               "lignePosteReference": "VABF-FE-001_L3",
+               "lignePosteUniteCode": 1,
+               "lignePosteUniteLibelle": "Pièces"
+            },
+                        {
+               "lignePosteDenomination": "Construction",
+               "lignePosteMontantHtApresRemise": 347000,
+               "lignePosteMontantRemiseHT": 30000,
+               "lignePosteMontantTtcApresRemise": 363378.4,
+               "lignePosteMontantTva": 16378.4,
+               "lignePosteMontantUnitaireHT": 347000,
+               "lignePosteNumero": 2,
+               "lignePosteQuantite": 1,
+               "lignePosteReference": "VABF-FE-001_L2",
+               "lignePosteTauxTvaManuel": 4.72,
+               "lignePosteUniteCode": 1,
+               "lignePosteUniteLibelle": "Pièces"
+            },
+                        {
+               "lignePosteDenomination": "Terrassement",
+               "lignePosteMontantHtApresRemise": 138475,
+               "lignePosteMontantTtcApresRemise": 146091.13,
+               "lignePosteMontantTva": 7616.13,
+               "lignePosteMontantUnitaireHT": 138475,
+               "lignePosteNumero": 1,
+               "lignePosteQuantite": 1,
+               "lignePosteReference": "VABF-FE-001_L1",
+               "lignePosteUniteCode": 1,
+               "lignePosteUniteLibelle": "Pièces"
+            }
+         ],
+         "nbResultatsParPageLignesPoste": 10,
+         "pageCouranteLignesPoste": 1,
+         "pagesLignesPoste": 1,
+         "totalLignesPoste": 3
+      },
+      "listeDesPiecesJointes":       {
+         "nbResultatsParPageListePiecesJointe": 10,
+         "pageCouranteListePiecesJointe": 1,
+         "pagesListePiecesJointe": 1,
+         "pieceJointe":          [
+                        {
+               "pieceJointeDesignation": "Pièce jointe secondaire facture VABF-FE-001",
+               "pieceJointeExtension": "pdf",
+               "pieceJointeId": 77,
+               "pieceJointeIdLiaison": 77,
+               "pieceJointeTypeCode": "17",
+               "pieceJointeTypeLibelle": "Pièce jointe facture modifiable"
+            },
+                        {
+               "pieceJointeDesignation": "Pièce jointe principale facture VABF-FE-001",
+               "pieceJointeExtension": "pdf",
+               "pieceJointeId": 76,
+               "pieceJointeIdLiaison": 76,
+               "pieceJointeTypeCode": "FACTURE_PDF",
+               "pieceJointeTypeLibelle": "Facture PDF"
+            }
+         ],
+         "totalListePiecesJointe": 2
+      },
+      "modeDepot": "SAISIE_PORTAIL",
+      "montantTotal":       {
+         "montantAPayer": 508989.53,
+         "montantHtTotal": 519475,
+         "montantRemiseGlobaleTTC": 36350,
+         "montantTVA": 25864.53,
+         "montantTtcAvantRemiseGlobalTTC": 545339.53,
+         "montantTtcTotal": 508989.53,
+         "motifRemiseGlobaleTTC": "Remise CAPRARO"
+      },
+      "numeroFacture": "VABF-FE-001",
+      "pieceJointePrincipale":       {
+         "idLiaisonPieceJointePrincipale": 76,
+         "idPieceJointePrincipale": 76
+      },
+      "recapitulatifDeTva":       {
+         "ligneTva":          [
+                        {
+               "ligneTvaMontantBaseHtParTaux": 317000,
+               "ligneTvaMontantTvaParTaux": 14962.4,
+               "ligneTvaTauxManuel": 4.72
+            },
+                        {
+               "ligneTvaMontantBaseHtParTaux": 138475,
+               "ligneTvaMontantTvaParTaux": 7616.13
+            }
+         ],
+         "nbResultatsParPageLignesRecapitulativesTVA": 10,
+         "pageCouranteLignesRecapitulativesTVA": 1,
+         "pagesLignesRecapitulativesTVA": 1,
+         "totalLignesRecapitulativesTVA": 2
+      },
+      "references":       {
+         "codeDeviseFacture": "EUR",
+         "dateCreationFacture": "2015-04-21 05:37",
+         "dateEcheancePaiement": "2015-06-30",
+         "dateFacture": "2015-04-19",
+         "libelleDeviseFacture": "Euro européen",
+         "modePaiement": "PRELEVEMENT",
+         "numeroBonCommande": "VABFC002",
+         "numeroMarche": "VABFM001",
+         "tailleTotalePiecesJointes": 26658,
+         "typeFacture": "FACTURE",
+         "typeTva": "TVA_SUR_ENCAISSEMENT"
+      },
+      "statutFacture": "BROUILLON"
+   }
+}

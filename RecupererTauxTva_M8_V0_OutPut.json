@@ -1,0 +1,96 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "listeTauxTva":    [
+            {
+         "codeTauxTva": "TV10",
+         "libelleTauxTva": "TVA 10%",
+         "valeurTauxTva": 10
+      },
+            {
+         "codeTauxTva": "TV11",
+         "libelleTauxTva": "TVA 13%",
+         "valeurTauxTva": 13
+      },
+            {
+         "codeTauxTva": "TV12",
+         "libelleTauxTva": "TVA 20%",
+         "valeurTauxTva": 20
+      },
+            {
+         "codeTauxTva": "TV13",
+         "libelleTauxTva": "TVA 20.6 %",
+         "valeurTauxTva": 20.6
+      },
+            {
+         "codeTauxTva": "TV14",
+         "libelleTauxTva": "saisie greffier Trib Comm",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TV15",
+         "libelleTauxTva": "TSS 5% Nouvelle-Calédonie",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TV16",
+         "libelleTauxTva": "Art 256B-PersonnePublique",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TV17",
+         "libelleTauxTva": "Pas de TVA St Pierre Miqu",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TV18",
+         "libelleTauxTva": "TGCA 4% (Saint Martin)",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TVA1",
+         "libelleTauxTva": "Art 293B(FranchiseEnBase)",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TVA2",
+         "libelleTauxTva": "Art 261-4-1°(Act médical)",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TVA3",
+         "libelleTauxTva": "Art 294-1(Mayotte/Guyane)",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TVA4",
+         "libelleTauxTva": "TVA  8,5%",
+         "valeurTauxTva": 8.5
+      },
+            {
+         "codeTauxTva": "TVA5",
+         "libelleTauxTva": "TVA  19.6%",
+         "valeurTauxTva": 19.6
+      },
+            {
+         "codeTauxTva": "TVA6",
+         "libelleTauxTva": "Art 261-7-1°(Association)",
+         "valeurTauxTva": 0
+      },
+            {
+         "codeTauxTva": "TVA7",
+         "libelleTauxTva": "TVA 2.1%",
+         "valeurTauxTva": 2.1
+      },
+            {
+         "codeTauxTva": "TVA8",
+         "libelleTauxTva": "TVA 5.5 %",
+         "valeurTauxTva": 5.5
+      },
+            {
+         "codeTauxTva": "TVA9",
+         "libelleTauxTva": "TVA 7%",
+         "valeurTauxTva": 7
+      }
+   ]
+}

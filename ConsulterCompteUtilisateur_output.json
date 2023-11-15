@@ -1,0 +1,25 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "adresseEmailConnexion": "GEST_FOURMNT203@cpp2017.fr",
+   "adresseEmailContact": "valere.aguilee@prestataire.finances.gouv.fr",
+   "adressePostale":    {
+      "adresse": "1 rue Test",
+      "codePostal": "75000",
+      "complementAdr1": "Batiment A",
+      "complementAdr2": "Etage 1",
+      "pays": "FR",
+      "ville": "Test"
+   },
+   "dateHeureCreation": "2017-01-27 16:47:43.453",
+   "fax": "234567890",
+   "idUtilisateur": 1340447300,
+   "indicatifFax": "+33",
+   "langue": "FR",
+   "nom": "GEST_FOURMNT203",
+   "prenom": "utilisateur_test",
+   "recevoirDesNotifications": false,
+   "statutUtilisateur": "Actif",
+   "telephone": "234567890"
+}
+

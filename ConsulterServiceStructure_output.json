@@ -1,0 +1,23 @@
+{
+   "codeRetour": 0,
+   "libelle": "TRA_MSG_00.000",
+   "adressePostale":    {
+      "adresse": "1 rue Test",
+      "codePostal": "75000",
+      "complementAdresse1": "Etage 1",
+      "fax": "234567890",
+      "pays": "France",
+      "telephone": "234567890",
+      "ville": "Test"
+   },
+   "informationsGenerales":    {
+      "codeService": "SERVICE_FOURNISSEURTST084",
+      "descriptionService": "SERVICE_FOURNISSEURTST084",
+      "nomService": "SERVICE_FOURNISSEURTST084"
+   },
+   "parametres":    {
+      "dateCreation": "2017-01-03T10:55:48.859+01:00",
+      "dateDebutValidite": "2017-01-03T10:55:36.367+01:00",
+      "numeroEngagement": false
+   }
+}

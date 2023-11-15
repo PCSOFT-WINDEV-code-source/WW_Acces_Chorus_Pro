@@ -1,0 +1,782 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_ChorusPro_Base
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1c0015db00e03850
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  internal_properties : CAAAAAgAAADmAKqJVcQLu+qGmz/jlT20CfrI59WTbFWCgBUjGzNA4IDKp2gaLDk/D8/OalPxb+CcDiEiCCJhI0oqUarA1DDeDlhS4DdrezLRnexFfQU6I6feZXLA
+  type_code : 31
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAA+nw166lElW6aZqfUjeetjspQQz4BcWdJ0rkj1Q2GrwNgYY7mwpuvVvHXH1IWjf/ZKNMaO30Dh0vAo8xv2AVxLayNwSESCePFV2iq7XqsNpx8oPtjdyCBWsU6F7y4tP0aXp72/9LSG0vh3qJl+gfJV6Op7jya7Z8CZKB9sjeo=
+     code : |1+
+      // ---- Gestion de la collection de procédure ------
+      ETypeConnexion est une Enumération
+      	ConnexionNonDefinie 
+      	ConnexionQualification
+      	ConnexionProduction
+      FIN
+      
+      EModeExecution est une Enumération
+      	ModeExecutionDebug
+      	ModeExecutionNormal
+      FIN
+      
+      PRIVÉ
+      _gTypeConnexionChorus est un ETypeConnexion = ConnexionNonDefinie
+      _gModeExecution est un EModeExecution = ModeExecutionNormal
+      _gsToken est une chaine
+      _gdhLimite est une dateheure
+      
+      CONSTANT
+      		
+      	// -- QUALIFICATION --
+      	cNomCertificatQualification				= ""
+      	cMotDePasseCertificatQualification		= ""	
+      	
+      	// Plus de détail sur la création d'un compte technique :  https://communaute.chorus-pro.gouv.fr/documentation/creation-dun-compte-technique-pour-un-acces-api-en-production/
+      	cNomUtilisateurTechniqueQualification	= ""		
+      	cMDPUtilisateurTechniqueQualification	= ""
+      	
+      	csClientIDSandBox						= ""
+      	csClientSecretSandBox					= ""
+      	
+      	// Plus de détail sur la création d'un compte technique : https://communaute.chorus-pro.gouv.fr/documentation/creation-dun-compte-technique-pour-un-acces-api-en-production/
+      	cNomUtilisateurTechniqueProduction	= ""	
+      	cMDPUtilisateurTechniqueProduction	= ""
+      	
+      	csClientIDProduction				= ""
+      	csClientSecretProduction			= ""
+      	
+      	
+      	
+      FIN
+      
+      // ---- Gestion des constantes CHORUS PRO ------
+      EFormatDepotPDF est une Enumération
+      	PDF_NON_SIGNE
+      	PDF_SIGNE_PADES
+      	PDF_SIGNE_XADES
+      FIN
+      
+      EModeDepotPDF est une Enumération
+      	DEPOT_PDF_API
+      	DEPOT_PDF_SIGNE_API
+      	SAISIE_API
+      FIN
+      
+      ECodeCadreFacturation est une Enumération
+      	A1_FACTURE_FOURNISSEUR
+      	A2_FACTURE_FOURNISSEUR_DEJA_PAYEE
+      	A9_FACTURE_SOUSTRAITANT
+      	A12_FACTURE_COTRAITANT
+      FIN
+      
+      ETypeFacture est une Enumération
+      	AVOIR
+      	FACTURE	
+      FIN
+      
+      ETypeTVA est une Enumération
+      	TVA_SUR_DEBIT
+      	TVA_SUR_ENCAISSEMENT
+      	EXONERATION
+      	SANS_TVA	
+      FIN
+      
+      EModePaiement est une Enumération
+      	ESPECE			= "ESPECE"
+      	CHEQUE			= "CHEQUE"
+      	PRELEVEMENT		= "PRELEVEMENT"
+      	VIREMENT		= "VIREMENT"
+      	AUTRE_MODE		= "AUTRE"		// Valeur différente car AUTRE est un mot-clé du WLangage
+      	REPORT			= "REPORT"
+      FIN
+      
+      // Documentation des API : https://communaute.chorus-pro.gouv.fr/documentation/api/
+      
+      // On ajoute le certificat racine de Chorus Pro (au cas où il ne serait pas présent sur le poste utilisateur) 
+      // dans la liste des certificats autorisés pour la fonction WLangage RestEnvoie
+      // https://www.certinomis.fr/documents-et-liens/nos-certificats-racines
+      CertificatDeConfianceAjoute("AC_Racine_G3.cer")
+     type : 720896
+  procedures :
+   -
+     name : _bTokenRenseigné
+     procedure_id : 2017636663418763344
+     type_code : 15
+     code : |1-
+      // Résumé : Vérifie si le certificat est renseigné dans cette configuration
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : Vrai si le certificat est renseigné, Faux sinon
+      //
+      PROCÉDURE RESTREINT _bTokenRenseigné():booléen
+      
+      SI _gsToken = "" _ou_ dateheuresys() > _gdhLimite ALORS
+      	RENVOYER _CréeToken()
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : _bUtilisateurTechniqueRenseigné
+     procedure_id : 2017636663418828880
+     type_code : 15
+     code : |1+
+      // Résumé : Vérifie si l'utilisateur technique est renseigné dans cette configuration
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : Vrai si l'utilisateur technique est renseigné, Faux sinon
+      //
+      PROCÉDURE RESTREINT _bUtilisateurTechniqueRenseigné():booléen
+      
+      // Le fichier de configuration ne doit pas être utilisé en production (on ne doit pas mettre en clair les identifiants)
+      
+      SELON GetTypeConnexionChorusPro()
+      	CAS ConnexionNonDefinie
+      		ErreurDéclenche(1,"Type de connexion non définie")
+      		RENVOYER Faux
+      		
+      	CAS ConnexionQualification
+      		
+      		// Vérification du nom d'utilisateur
+      		SI cNomUtilisateurTechniqueQualification= "" ALORS
+      			ErreurDéclenche(10,"Utilisateur technique qualification non renseigné")
+      			RENVOYER Faux
+      		FIN
+      		
+      		// Vérification du mot de passe de l'utilisateur technique
+      		SI cMDPUtilisateurTechniqueQualification="" ALORS
+      			ErreurDéclenche(11,"Mot de passe de l'utilisateur technique qualification non renseigné")
+      			RENVOYER Faux
+      		FIN
+      		
+      	CAS ConnexionProduction
+      		// Vérification du nom d'utilisateur
+      		SI cNomUtilisateurTechniqueProduction= "" ALORS
+      			ErreurDéclenche(20,"Utilisateur technique production non renseigné")
+      			RENVOYER Faux
+      		FIN
+      		
+      		// Vérification du mot de passe de l'utilisateur technique
+      		SI cMDPUtilisateurTechniqueProduction="" ALORS
+      			ErreurDéclenche(21,"Mot de passe de l'utilisateur technique production non renseigné")
+      			RENVOYER Faux
+      		FIN
+      FIN
+      
+      
+      RENVOYER Vrai
+     type : 458752
+   -
+     name : _bVerifieRéponseREST
+     procedure_id : 2017636663418894416
+     type_code : 15
+     code : |1+
+      // Résumé : Vérifie la réponse du Web Service REST
+      // Paramètres :
+      //	cRestReponse (httpRéponse) : Réponse du Web Service
+      // Valeur de retour :
+      // 	booléen : Vrai si la réponse est valide, Faux sinon
+      //
+      PROCÉDURE RESTREINT _bVerifieRéponseREST(cRestReponse est un restRéponse):booléen
+      
+      // Vérification du retour
+      SELON cRestReponse.DescriptionCodeEtat
+      	CAS "ERROR"
+      		SELON cRestReponse.ContentType
+      			CAS "application/json"
+      				ErreurDéclenche(100,"Réponse incorrecte :"+ UTF8VersAnsi(cRestReponse.Contenu))				
+      			AUTRE CAS
+      				ErreurDéclenche(101,"Réponse de type incorrecte : on attendait du JSON")
+      		FIN
+      		RENVOYER Faux
+      	AUTRE CAS
+      		// OK sauf cas d'erreurs spécifiés dans les Annexes : https://communaute.chorus-pro.gouv.fr/wp-content/uploads/2018/11/Specifications_Externes_Annexe_Services_API_V4.10.pdf
+      		SELON cRestReponse.CodeEtat				
+      			CAS 200
+      				RENVOYER Vrai
+      			CAS 400
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Requête mal formulée : "+cRestReponse.Contenu)
+      				RENVOYER Faux	
+      			CAS 401
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Informations d'authentification non présentes")
+      				RENVOYER Faux	
+      			CAS 403
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Certificat non présent ou non reconnu")
+      				RENVOYER Faux	
+      			CAS 404
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Page non trouvée")
+      				RENVOYER Faux	
+      			CAS 406
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Format non accepté")
+      				RENVOYER Faux	
+      			CAS 429
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Le client a émis trop de requêtes dans un délai donné")
+      				RENVOYER Faux		
+      			CAS 500
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Erreur interne au serveur")
+      				RENVOYER Faux			
+      			CAS 503
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Service indisponible")
+      				RENVOYER Faux			
+      			CAS 504
+      				ErreurDéclenche(cRestReponse.CodeEtat,"Temps d'attente dépassé")
+      				RENVOYER Faux			
+      				
+      			AUTRE CAS
+      				RENVOYER Vrai			
+      		FIN
+      		
+      		
+      FIN
+     type : 458752
+   -
+     name : _CallBackDebug
+     internal_properties : CAAAAAgAAAA2gQhQyn462XRki2lW6LNqxbI+MgbFISZOsDDJGW7iR3CtG0rZqOSZ/obyUNZ0oRq+jmZbfgRR494aUeYMGkz9tcZQZPDM+47EzM7N9SJpEgeU9IIGq1DvvdLNXdgFvdhEk6TYbU7yLWGcNyhJocz1etju+9UeGb6xLi35/jY259MNtUdkR5bz6cZI0FUxFOzuflVSzcY=
+     procedure_id : 2017636663418959952
+     type_code : 15
+     code : |1+
+      // Résumé : CallBack permettant d'afficher les trames envoyées par la fonction RestEnvoie
+      // Paramètres :
+      //	nTypeInfo (entier) : Type d'information
+      //	bufDonnées (buffer) : Données envoyées
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE RESTREINT _CallBackDebug(nTypeInfo est entier, bufDonnées est un Buffer)
+      
+      // On affiche une trace selon le type de données
+      SELON nTypeInfo
+      	CAS httpTraceEnteteEnvoye:
+      		TraceHorodatée("Entête : ", UTF8VersChaîne(bufDonnées))
+      	CAS httpTraceDonneeEnvoyee:
+      		TraceHorodatée("Données : ", bufDonnées)
+      	AUTRE CAS
+      		TraceHorodatée("Info non reconnue : ",bufDonnées)
+      FIN
+      
+     type : 458752
+   -
+     name : _ConstruitBaseRequêteREST
+     internal_properties : CAAAAAgAAACGMeLxnZQHsYYmy6Xqastus0CU/MJ/+e70/iCV1WDi/xJHQZzp1vS1jCSGqLYSVVq4wESFJrLhIwQggS5MSPwxY9RqkuTe44Laws5OeKHiiZonHemR2o8c+JUQCo9IivN/VuVnmD3Barw/2uGIbL0kQSejdkwhxFsUmVjCATXLetIMTjZzQmG8oPWnZVhY4diGpQviPVY=
+     procedure_id : 2017636663419025488
+     type_code : 15
+     code : |1-
+      // Résumé : Construit la base de la requête REST
+      // Paramètres :
+      //	cRestRequete (httpRequête) : Requête REST
+      //	sUrlAppel (chaîne ANSI) : URL d'appel
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE RESTREINT _ConstruitBaseRequêteREST(cRestRequete est un restRequête, LOCAL sUrlAppel est une chaîne)
+      
+      // Construction des paramètres de base
+      cRestRequete.URL = sUrlAppel
+      cRestRequete..Méthode = httpPost
+      cRestRequete.ContentType = "application/json"
+      
+      // Activation d'une procédure Debug si besoin
+      SI GetModeExecution() = ModeExecutionDebug ALORS
+      	cRestRequete.ProcédureTrace = _CallBackDebug
+      FIN
+     type : 458752
+   -
+     name : _ConstruitHeaderSécurité
+     internal_properties : CAAAAAgAAACwOAEZPF+BJ+5J9Kb36hNcMy7Vg8QlTt2EhHhUl1ee9+4exjbNpnzYJnS1ioL/48kooWeqnfmxDGuO+kS01gocZ5tYPZT1CT3EI1Ux938X75jblBwoI6xLK0B7iyDJXXgS0Woq35I69SWoMyzdPxT1MAYcNYPEw1gNgvExLuaai/YYyjqLSLUQ/tPl01ZS87FVJcgF/DAGPC3cssBbJthoiqZWzkZT
+     procedure_id : 2017636663419091024
+     type_code : 15
+     code : |1+
+      // Résumé : Construit l'entête de sécurité de l'appel REST
+      // Paramètres :
+      //	cRestRequete (httpRequête) : Requête REST
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE RESTREINT _ConstruitHeaderSécurité(cRestRequete est un restRequête)
+      
+      //// Utilisateur technique
+      cRestRequete.Utilisateur = GetNomUtilisateurTechnique()
+      cRestRequete.MotDePasse = GetMDPUtilisateurTechnique()
+      
+      cRestRequete.Entête["Authorization"] = "Bearer " + _gsToken
+      
+      // Obligatoirement une chaîne ANSI pour que la requête soit bien décodée
+      sEnteteAuthentification est une chaine ANSI = GetNomUtilisateurTechnique() + ":" +GetMDPUtilisateurTechnique()
+      
+      cRestRequete.Entête["cpro-account"] = + encode(sEnteteAuthentification,encodeBASE64SansRC)
+     type : 458752
+   -
+     name : _sURLBase
+     procedure_id : 2017636663419156560
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie l'URL de base en fonction du mode de fonctionnement : qualification ou production
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : URL de base chorus pro
+      PROCÉDURE RESTREINT _sURLBase():chaîne
+      
+      // Récupération du type de connexion
+      eTypeConnexionChorus est un ETypeConnexion = GetTypeConnexionChorusPro()
+      
+      // URL en fonction du type de connexion
+      SELON eTypeConnexionChorus
+      	CAS ConnexionNonDefinie
+      		ErreurDéclenche(1,"Connexion chorus non définie")
+      		RENVOYER ""
+      		
+      	CAS ConnexionQualification
+      		
+      		RENVOYER "https://sandbox-api.aife.economie.gouv.fr"
+      		
+      		
+      		
+      	CAS ConnexionProduction
+      		RENVOYER "https://api.aife.economie.gouv.fr"
+      FIN
+      
+      <COMPILE SI TypeConfiguration=iOS>	
+      	ErreurPropage("Configuration non reconnue")
+      <fin>
+      RENVOYER ""
+     type : 458752
+   -
+     name : ChorusProAppelGenerique
+     procedure_id : 2017636663419222096
+     type_code : 15
+     code : |1+
+      // Résumé : Appel une API ChorusPro
+      // Paramètres :
+      //	DonnéesEntrée (JSON) : Paramètres d'entrée de l'API
+      //	sDetailURLRessource (chaîne ANSI) : Fin de l'URL d'appel (après "/service", par exemple "factures/deposer/pdf")
+      // Valeur de retour :
+      // 	JSON : JSON renvoyée par l'API
+      //
+      PROCÉDURE ChorusProAppelGenerique(DonnéesEntrée est un JSON, sDetailURLRessource est une chaîne):JSON
+      
+      sRessource est une chaine = ["/"] + sDetailURLRessource
+      CodeErreur est un JSON
+      
+      // Trace d'appel
+      SI GetModeExecution() = ModeExecutionDebug ALORS TraceHorodatée(dbgInfo(dbgElément))	
+      
+      // Vérification des paramètres
+      SI VerifieParametres() = Faux ALORS
+      	dbgAssertion(Faux,"Paramètres non valides" + RC + "Pensez à renseigner les différents identifiants dans le code de déclaration global de la collection COL_ChorusPro_Base")
+      	RENVOYER CodeErreur
+      FIN
+      
+      // URL appelée (décrite dans la documentation et fichier WADL ou la page de documentation
+      sUrlAppel est une chaîne = _sURLBase() + ["/"] + sRessource
+      SI ErreurDétectée = Vrai ALORS
+      	<COMPILE SI TypeConfiguration=iOS>		
+      		ErreurPropage("Connexion impossible à Chorus Pro")
+      	<fin>
+      	RENVOYER CodeErreur
+      FIN
+      
+      // Construction des paramètres
+      ParametreEntree est un JSON
+      ParametreEntree = DonnéesEntrée
+      
+      // Envoi de la requête
+      cRestRequete est une restRequête
+      _ConstruitBaseRequêteREST(cRestRequete, sUrlAppel)
+      
+      // Fourniture des paramètres d'entrée
+      SI ParametreEntree = Null ALORS
+      	sAnsi est une chaine ansi = "{ }"
+      	cRestRequete.Contenu = sAnsi
+      SINON
+      	cRestRequete.Contenu = ParametreEntree	
+      FIN
+      
+      // Construction de l'entête de sécurité
+      _ConstruitHeaderSécurité(cRestRequete)
+      
+      // Exécution de l'API REST
+      cRestReponse est un restRéponse
+      cRestReponse = RESTEnvoie(cRestRequete)
+      SI ErreurDétectée = Vrai ALORS
+      	<COMPILE SI TypeConfiguration=iOS>	
+      		ErreurPropage("Erreur lors de l'appel à Chorus Pro")
+      	<fin>
+      	RENVOYER CodeErreur
+      FIN
+      
+      // Vérification du résultat
+      SI _bVerifieRéponseREST(cRestReponse) = Faux ALORS
+      	<COMPILE SI TypeConfiguration=iOS>	
+      		ErreurPropage("Erreur lors de l'appel")
+      	<fin>
+      	RENVOYER CodeErreur	
+      FIN
+      
+      // On force la conversion du résultat en JSON
+      ResultatAPI est un JSON
+      ResultatAPI = cRestReponse.Contenu
+      
+      // Par défaut, l'opération se déroule correctement
+      RENVOYER ResultatAPI
+      
+      	PROCÉDURE INTERNE VerifieParametres():booléen
+      	
+      //	// Vérification du certificat
+      	SI _bTokenRenseigné() = Faux ALORS
+      		RENVOYER Faux
+      	FIN
+      	
+      	// Vérification de l'utilisateur technique
+      	SI _bUtilisateurTechniqueRenseigné() = Faux ALORS
+      		RENVOYER Faux
+      	FIN	
+      	
+      	
+      	
+      	RENVOYER Vrai
+      	FIN
+     type : 458752
+   -
+     name : GetMDPUtilisateurTechnique
+     procedure_id : 2017636663419418704
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie le mot de passe de l'utilisateur technique
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : mot de passe de l'utilisateur technique
+      //
+      PROCÉDURE PRIVÉE GetMDPUtilisateurTechnique():chaîne
+      
+      
+      // Vérification des informations
+      SI _bUtilisateurTechniqueRenseigné() = Faux ALORS
+      	<COMPILE SI TypeConfiguration=iOS>	
+      		ErreurPropage("Utilisateur technique non renseigné")
+      	<fin>
+      	RENVOYER ""
+      FIN
+      
+      SELON GetTypeConnexionChorusPro()
+      	CAS ConnexionNonDefinie
+      		RENVOYER ""
+      		
+      	CAS ConnexionQualification
+      		RENVOYER cMDPUtilisateurTechniqueQualification
+      		
+      	CAS ConnexionProduction
+      		RENVOYER cMDPUtilisateurTechniqueProduction
+      FIN
+      
+      <COMPILE SI TypeConfiguration=iOS>	
+      	ErreurPropage("Configuration non reconnue")
+      <fin>
+      RENVOYER ""
+     type : 458752
+   -
+     name : GetModeExecution
+     procedure_id : 2017636663419484240
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le mode d'exécution de la collection 
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	COL_ChorusPro_Base.EModeExecution : mode d'exécution
+      //
+      PROCÉDURE GetModeExecution():EModeExecution
+      
+      RENVOYER _gModeExecution
+     type : 458752
+   -
+     name : GetNomUtilisateurTechnique
+     procedure_id : 2017636663419549776
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie le nom d'utilisateur technique
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : nom d'utilisateur technique
+      //
+      PROCÉDURE PRIVÉE GetNomUtilisateurTechnique():chaîne
+      
+      
+      // Vérification des informations
+      SI _bUtilisateurTechniqueRenseigné() = Faux ALORS
+      	<COMPILE SI TypeConfiguration=iOS>	
+      		ErreurPropage("Utilisateur technique non renseigné")
+      	<fin>
+      	RENVOYER ""
+      FIN
+      
+      SELON GetTypeConnexionChorusPro()
+      	CAS ConnexionNonDefinie
+      		RENVOYER ""
+      		
+      	CAS ConnexionQualification
+      		RENVOYER cNomUtilisateurTechniqueQualification
+      		
+      	CAS ConnexionProduction
+      		RENVOYER cNomUtilisateurTechniqueProduction
+      FIN
+      
+      <COMPILE SI TypeConfiguration=iOS>	
+      	ErreurPropage("Configuration non reconnue")
+      <fin>
+      RENVOYER ""
+     type : 458752
+   -
+     name : GetTypeConnexionChorusPro
+     procedure_id : 2017636663419615312
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le type de connexion à Chorus Pro
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	COL_ChorusPro_Base.ETypeConnexion : type de connexion à Chorus Pro
+      //
+      PROCÉDURE GetTypeConnexionChorusPro():ETypeConnexion
+      
+      RENVOYER _gTypeConnexionChorus
+     type : 458752
+   -
+     name : TraceHorodatée
+     procedure_id : 2017636663419680848
+     type_code : 15
+     code : |1+
+      // Résumé : Affiche une trace horodatée
+      // Paramètres :
+      //	s1 (chaîne UNICODE) : <indiquez ici le rôle de s1>
+      //	s2 (chaîne UNICODE - valeur par défaut="") : <indiquez ici le rôle de s2>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // 	<*> : <indiquez ici le rôle de Données à afficher>
+      PROCÉDURE RESTREINT TraceHorodatée(s1 est une chaine <utile>, local s2 est une chaine <utile> = "")
+      
+      <COMPILE SI TypeConfiguration=iOS>
+      	Trace("[%DateVersChaîne(DateSys())%]-[%HeureVersChaîne(HeureSys())%] - ",s1,s2)
+      <fin>
+     type : 458752
+   -
+     name : ChorusProDefinitConnexion
+     procedure_id : 2017636663419746384
+     type_code : 15
+     code : |1+
+      // Résumé : Définit le type de connexion à Chorus Pro
+      // Paramètres :
+      //	eTypeConnexionChorus (COL_ChorusPro_Base.ETypeConnexion) : type de connexion à Chorus Pro
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE ChorusProDefinitConnexion(eTypeConnexionChorus est un ETypeConnexion)
+      
+      SELON eTypeConnexionChorus
+      	CAS ConnexionNonDefinie
+      		_gTypeConnexionChorus = eTypeConnexionChorus
+      	CAS ConnexionQualification
+      		_gTypeConnexionChorus = eTypeConnexionChorus
+      	CAS ConnexionProduction
+      		_gTypeConnexionChorus = eTypeConnexionChorus
+      FIN
+     type : 458752
+   -
+     name : ChorusProDefinitModeExecution
+     procedure_id : 2017636663419811920
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le mode d'exécution de la collection
+      // Paramètres :
+      //	eModeExecutionVoulu (COL_ChorusPro_Base.EModeExecution) : mode d'exécution de la collection
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCÉDURE ChorusProDefinitModeExecution(eModeExecutionVoulu est un EModeExecution)
+      
+      _gModeExecution = eModeExecutionVoulu
+     type : 458752
+   -
+     name : _CréeToken
+     internal_properties : CAAAAAgAAAAog3TSUOQd8YrKZ1XKdkvid5RUjApTJX4wWtQ1tRyK6waTMYTBkjB9IBg6+M6WNQ5s3Lz1tg6105gULa4k5Aw9twj6ImxKb2oGXuroylt05/TJp087HKG+SmcC/DHSLBGhAJcd4pdDfI5JZOMiHg/yi/mNBB4LznV+O/p0c99NwDyGsBRdHINeGre5X1JaQ2DukqVYy8A=
+     procedure_id : 2177573265466446007
+     type_code : 15
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] _CréeToken ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE PRIVÉE _CréeToken()
+      
+      
+      
+      MaReq est un httpRequête
+      
+      
+      MaReq.URL = GetURLToken()
+      
+      MaReq.Méthode		= httpPost
+      MaReq.ContentType	= typeMimeFormulaireSimple
+      
+      sContenuAnsi est une chaine ANSI = [
+      grant_type=client_credentials&client_id=[%GetClientID()%]&client_secret=[%GetClientSecret()%]&scope=openid
+      ]
+      
+      MaReq.Contenu		= sContenuAnsi
+      
+      MaRéponse est un httpRéponse
+      
+      MaRéponse = HTTPEnvoie(MaReq)
+      SI MaRéponse.CodeEtat = 200 ALORS
+      	v est un variant = JSONVersVariant(MaRéponse.contenu)
+      	
+      	// Stocke le token
+      	_gdhLimite = dateheuresys()
+      	_gsToken = v.access_token
+      	_gdhLimite..Seconde += val(v.expires_in)
+      	
+      	renvoyer vrai
+      FIN
+      
+      renvoyer faux
+     type : 458752
+   -
+     name : GetClientID
+     procedure_id : 2177591068109968048
+     type_code : 15
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] GetClientID ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetClientID()
+      
+      // Récupération du type de connexion
+      eTypeConnexionChorus est un ETypeConnexion = GetTypeConnexionChorusPro()
+      
+      // URL en fonction du type de connexion
+      selon eTypeConnexionChorus
+      	CAS ConnexionNonDefinie
+      		renvoyer ""
+      	CAS ConnexionQualification
+      		renvoyer csClientIDSandBox
+      	CAS ConnexionProduction
+      		renvoyer csClientIDProduction
+      		
+      FIN
+      renvoyer ""
+     type : 458752
+   -
+     name : GetClientSecret
+     procedure_id : 2177591295743352881
+     type_code : 15
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] GetClientSecret ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetClientSecret()
+      
+      
+      // Récupération du type de connexion
+      eTypeConnexionChorus est un ETypeConnexion = GetTypeConnexionChorusPro()
+      
+      // URL en fonction du type de connexion
+      SELON eTypeConnexionChorus
+      	CAS ConnexionNonDefinie
+      		RENVOYER ""
+      	CAS ConnexionQualification
+      		RENVOYER csClientSecretSandBox
+      	CAS ConnexionProduction
+      		RENVOYER csClientSecretProduction
+      		
+      FIN
+      renvoyer ""
+     type : 458752
+   -
+     name : GetURLToken
+     procedure_id : 2177591484721957686
+     type_code : 15
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] GetURLToken ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetURLToken()
+      
+      
+      // Récupération du type de connexion
+      eTypeConnexionChorus est un ETypeConnexion = GetTypeConnexionChorusPro()
+      
+      // URL en fonction du type de connexion
+      SELON eTypeConnexionChorus
+      	CAS ConnexionNonDefinie
+      		renvoyer "https://sandbox-oauth.aife.economie.gouv.fr/api/oauth/token"
+      		
+      	CAS ConnexionQualification
+      		RENVOYER "https://sandbox-oauth.aife.economie.gouv.fr/api/oauth/token"
+      		
+      	CAS ConnexionProduction
+      		RENVOYER "https://oauth.aife.economie.gouv.fr/api/oauth/token"
+      		
+      FIN
+      renvoyer ""
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x10fae94019d15f5e
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,33 @@
+{
+   "codeRetour": 0,
+   "libelle": "GCU_MSG_01_000",
+   "designationStructure": "REC051FOURNISSEUR",
+   "idStructure": 49739350,
+   "identifiantStructure": "00000000001139",
+   "listeServices":    [
+            {
+         "codeService": "SERVICE_FOURNISSEURREC051",
+         "dateDebut": "2016-11-23T11:03:21.173+01:00",
+         "idRattachement": 24922811,
+         "idService": 28723252,
+         "nomService": "SERVICE_FOURNISSEURREC051",
+         "premierService": false,
+         "statutRattachement": "VALIDEE"
+      },
+            {
+         "codeService": "FACTURES_PUBLIQUES",
+         "dateDebut": "2016-11-23T11:03:21.173+01:00",
+         "idRattachement": 24922810,
+         "idService": 28723251,
+         "nomService": "Service des factures publiques",
+         "premierService": false,
+         "statutRattachement": "VALIDEE"
+      }
+   ],
+   "parametresRetour":    {
+      "nbResultatsParPage": 100,
+      "pageCourante": 1,
+      "pages": 1,
+      "total": 2
+   }
+}
